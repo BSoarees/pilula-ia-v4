@@ -1,0 +1,17 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Obsidian (caso volte pra dentro do vault)
+.obsidian/
+
+# Temporários
+*.tmp
+*.bak

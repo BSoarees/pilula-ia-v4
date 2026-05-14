@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💊 Pílula de IA — V4 Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,800;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #faf6ee;
+    --paper-soft: #f3ede0;
+    --paper-line: #e8dfc9;
+    --ink: #2a2622;
+    --ink-soft: #6b6358;
+    --accent: #d97757;
+    --accent-soft: #f4d8c6;
+    --blue: #3a6ea5;
+    --blue-soft: #d6e3f2;
+    --green: #5a8a4a;
+    --green-soft: #d8e6c9;
+    --yellow: #d4a72c;
+    --shadow: 0 1px 2px rgba(60, 50, 30, 0.06), 0 4px 12px rgba(60, 50, 30, 0.04);
+    --shadow-lg: 0 4px 12px rgba(60, 50, 30, 0.08), 0 12px 32px rgba(60, 50, 30, 0.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background-color: var(--paper);
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(217, 119, 87, 0.06) 0px, transparent 40%),
+      radial-gradient(circle at 80% 100%, rgba(58, 110, 165, 0.05) 0px, transparent 40%);
+    background-attachment: fixed;
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    font-size: 16px;
+  }
+  .container { max-width: 880px; margin: 0 auto; padding: 80px 28px 60px; }
+
+  /* ============ HEADER ============ */
+  header { text-align: center; margin-bottom: 56px; position: relative; }
+  .badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(217, 119, 87, 0.25);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  h1 .pulse { display: inline-block; animation: pulse 2.5s ease-in-out infinite; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(-5deg); }
+  }
+  .subtitle {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--ink-soft);
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .principle {
+    margin: 44px auto 0;
+    padding: 22px 28px;
+    background: linear-gradient(135deg, #fff9ed 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--paper-line);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    max-width: 620px;
+    box-shadow: var(--shadow);
+  }
+  .principle .label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .principle .text {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ============ TOC ============ */
+  .toc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .toc {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-bottom: 80px;
+  }
+  .toc-card {
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-radius: 14px;
+    padding: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    display: block;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .toc-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent);
+  }
+  .toc-card.blue::before { background: var(--blue); }
+  .toc-card.planned::before { background: var(--yellow); }
+  .toc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-soft);
+  }
+  .toc-card .num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .toc-card.blue .num { color: var(--blue); }
+  .toc-card.planned .num { color: var(--yellow); }
+  .toc-card h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.3rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .toc-card .date {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .toc-card .desc {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+  .toc-card .status {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+  .status.done { background: var(--green-soft); color: var(--green); }
+  .status.planned { background: #f5e9c4; color: #8a6d20; }
+
+  /* ============ DOSE ============ */
+  .dose {
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-radius: 18px;
+    padding: 56px 56px 48px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .dose-header { border-bottom: 1px solid var(--paper-line); padding-bottom: 28px; margin-bottom: 36px; }
+  .dose-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .dose#dose-2 .dose-num { color: var(--blue); }
+  .dose-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 2.1rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .dose-meta { color: var(--ink-soft); font-size: 0.85rem; display: flex; gap: 16px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; }
+
+  .dose h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    margin-top: 40px;
+    margin-bottom: 14px;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .dose h4 {
+    margin-top: 28px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .dose p { margin-bottom: 16px; color: var(--ink); }
+  .dose ul, .dose ol { margin: 0 0 20px 24px; }
+  .dose li { margin-bottom: 10px; color: var(--ink); }
+  .dose li::marker { color: var(--accent); }
+  .dose strong { color: var(--ink); font-weight: 700; }
+  .dose em { color: var(--ink-soft); }
+
+  .dose blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 14px 22px;
+    margin: 22px 0;
+    background: var(--paper-soft);
+    border-radius: 0 8px 8px 0;
+    color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.02rem;
+    box-shadow: var(--shadow);
+  }
+  .dose#dose-2 blockquote { border-left-color: var(--blue); }
+  .dose blockquote strong { color: var(--ink); font-style: normal; }
+
+  .dose code {
+    background: var(--paper-soft);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.88em;
+    color: var(--accent);
+    border: 1px solid var(--paper-line);
+  }
+  .dose pre {
+    background: #fdf9f0;
+    padding: 22px 26px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 22px 0;
+    border: 1px solid var(--paper-line);
+    box-shadow: inset 0 1px 3px rgba(60, 50, 30, 0.04);
+  }
+  .dose pre code {
+    background: none;
+    padding: 0;
+    border: none;
+    color: var(--ink);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  /* Highlight box dentro das doses */
+  .callout {
+    background: linear-gradient(135deg, #fff9ed 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--paper-line);
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin: 24px 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .callout .icon { font-size: 1.6rem; flex-shrink: 0; }
+  .callout .content { flex: 1; }
+  .callout .title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .callout p { margin-bottom: 0; }
+
+  /* ============ TASKS ============ */
+  .tasks {
+    margin-top: 80px;
+    padding: 44px 48px;
+    background: linear-gradient(135deg, #fff9ed 0%, #fdf3e2 100%);
+    border: 1px solid var(--accent-soft);
+    border-radius: 18px;
+    box-shadow: var(--shadow-lg);
+  }
+  .tasks h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    margin-bottom: 24px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .tasks ul { list-style: none; margin: 0; }
+  .tasks li {
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--paper-line);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: var(--ink);
+  }
+  .tasks li:last-child { border-bottom: none; }
+  .tasks li::before {
+    content: "☐";
+    color: var(--accent);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--paper-line);
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  footer .heart { color: var(--accent); }
+
+  @media (max-width: 720px) {
+    .container { padding: 48px 18px 40px; }
+    .dose { padding: 32px 24px 28px; }
+    .dose-title { font-size: 1.6rem; }
+    .tasks { padding: 32px 24px; }
+  }
+  @media print {
+    body { background: white; }
+    .toc-card, .dose, .tasks { break-inside: avoid; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <span class="badge">V4 Company · Treinamento Interno</span>
+    <h1><span class="pulse">💊</span> Pílula de IA</h1>
+    <p class="subtitle">Doses curtas, didáticas, mão na massa.<br>Uma aula por semana sobre como usar IA de verdade no nosso trabalho.</p>
+
+    <div class="principle">
+      <div class="label">Princípio que guia tudo</div>
+      <div class="text">Pessoas decidem · Máquinas executam · IA analisa.</div>
+    </div>
+  </header>
+
+  <div class="toc-title">— Aulas até agora —</div>
+  <section class="toc">
+    <a href="#dose-1" class="toc-card">
+      <div class="num">Dose #1</div>
+      <h3>Skills, MCPs, APIs, Agentes & Prompts</h3>
+      <div class="date">2026-05-05</div>
+      <div class="desc">Os 5 pilares que sustentam qualquer automação inteligente.</div>
+      <span class="status done">✅ Concluída</span>
+    </a>
+
+    <a href="#dose-2" class="toc-card blue">
+      <div class="num">Dose #2</div>
+      <h3>Contexto — a memória viva da IA</h3>
+      <div class="date">2026-05-13</div>
+      <div class="desc">Janela de 1M tokens, arquivos <code>.md</code> como cérebro externo.</div>
+      <span class="status done">✅ Concluída</span>
+    </a>
+
+    <div class="toc-card planned" style="cursor: default;">
+      <div class="num">Dose #3</div>
+      <h3>Prática: debugar problemas reais</h3>
+      <div class="date">a definir</div>
+      <div class="desc">Cada um traz um <code>.md</code> de tarefa que não rolou. Vamos arrumar ao vivo.</div>
+      <span class="status planned">📅 Planejada</span>
+    </div>
+  </section>
+
+  <!-- ============ DOSE 1 ============ -->
+  <article class="dose" id="dose-1">
+    <div class="dose-header">
+      <div class="dose-num">Dose #1</div>
+      <h2 class="dose-title">Skills, MCPs, APIs, Agentes & Engenharia de Prompt</h2>
+      <div class="dose-meta">
+        <span>📅 05 de maio de 2026</span>
+        <span>✅ Concluída</span>
+      </div>
+    </div>
+
+    <p>Tema de estreia: os <strong>5 pilares</strong> que sustentam qualquer automação inteligente de verdade.</p>
+
+    <h3>🧩 Skills</h3>
+    <p>Pacotes de conhecimento especializado que a IA carrega sob demanda (ex.: <code>conciliacao-bancaria</code>, <code>sap-s4hana</code>). Cada skill é uma "expertise" plugável: quando o contexto pede, ela entra em cena.</p>
+
+    <h3>🔌 MCPs <em>(Model Context Protocol)</em></h3>
+    <p>A "tomada universal" que conecta a IA direto às ferramentas (Supabase, n8n, Gmail, Drive). Em vez de copiar/colar dados, o modelo lê e age na fonte.</p>
+
+    <h3>🌐 APIs</h3>
+    <p>A camada que permite a IA conversar com sistemas externos (SAP, gateways, plataformas de venda). É o "braço executor" que tira a IA do chat e leva pra dentro do processo.</p>
+
+    <h3>🤖 Agentes</h3>
+    <p>A junção de tudo: skills + MCPs + APIs orquestrados pra executar tarefas de ponta a ponta com autonomia (ex.: ler e-mail → extrair NF → conciliar com contas a pagar → registrar no SAP).</p>
+
+    <h3>✍️ Engenharia de Prompt</h3>
+    <p>A habilidade de <em>falar com a IA do jeito certo</em>. Não é mágica, é método: persona, objetivo, regras, exemplos e formato de saída. Um bom prompt é a diferença entre uma resposta genérica e um resultado pronto pra produção.</p>
+
+    <h4>🎯 Anatomia de um bom prompt</h4>
+    <pre><code>[PERSONA]
+Você é um analista financeiro sênior da V4 Company,
+especialista em conciliação entre gateway e SAP.
+
+[OBJETIVO]
+Analisar a planilha de vendas do EasyFlow e identificar
+transações que não bateram com o extrato bancário do dia.
+
+[REGRAS]
+- Considerar divergência apenas valores acima de R$ 1,00
+- Ignorar estornos já marcados como "REFUND"
+- Agrupar por método de pagamento (PIX, Cartão, Boleto)
+- Nunca inventar dados — se faltar informação, sinalizar
+
+[EXEMPLO DE SAÍDA ESPERADA]
+| Método | Qtd Divergências | Valor Total | Ação Sugerida |
+|--------|------------------|-------------|---------------|
+| PIX    | 3                | R$ 450,00   | Revisar D+1   |
+
+[CONTEXTO]
+Empresa: Staage (1420) | Data: 03/05/2026</code></pre>
+
+    <div class="callout">
+      <div class="icon">💡</div>
+      <div class="content">
+        <div class="title">Por que funciona</div>
+        <p>A IA sabe <em>quem ela é</em>, <em>o que entregar</em>, <em>o que não pode fazer</em> e <em>como formatar</em> — eliminando 90% das idas e voltas.</p>
+      </div>
+    </div>
+
+    <h3>🎁 Bônus ao vivo: Skill <code>/ideia</code></h3>
+    <p>Uma skill que combina <strong>ideação socrática</strong> (expandir a ideia) + <strong>sabatina implacável</strong> (estressar antes de executar). Use quando bater aquele "tenho uma ideia, mas será que faz sentido?" — ela ajuda a validar antes de gastar energia construindo.</p>
+  </article>
+
+  <!-- ============ DOSE 2 ============ -->
+  <article class="dose" id="dose-2">
+    <div class="dose-header">
+      <div class="dose-num">Dose #2</div>
+      <h2 class="dose-title">Contexto — a memória viva da IA</h2>
+      <div class="dose-meta">
+        <span>📅 13 de maio de 2026</span>
+        <span>✅ Concluída</span>
+      </div>
+    </div>
+
+    <p>Tema de hoje: <strong>Contexto</strong>. Aquilo que separa uma IA que "esqueceu tudo" de uma IA que continua de onde parou.</p>
+
+    <h3>🧠 O que é contexto, afinal?</h3>
+    <p>É o conjunto de informações que a IA carrega na cabeça durante uma conversa. Quanto mais contexto certo, melhor a entrega. Igual a SAP: quem conhece as telas executa mais rápido — a IA é a mesma coisa.</p>
+
+    <h3>📏 A janela de 1 milhão de tokens</h3>
+    <p>Cada chat tem um limite: <strong>1 milhão de tokens</strong> (~200 mil caracteres no Claude). Quando estoura, o chat trava e você precisa abrir outro. Aí mora o problema: <strong>se você não salvou o contexto, perdeu tudo.</strong></p>
+
+    <div class="callout">
+      <div class="icon">📊</div>
+      <div class="content">
+        <div class="title">Exemplo real</div>
+        <p>O projeto Fusame consumiu 877 mil tokens só na <strong>fase 1</strong> de 5. Sem estratégia de contexto, eu teria que explicar tudo de novo na fase 2.</p>
+      </div>
+    </div>
+
+    <h3>📄 A solução: arquivos <code>.md</code> como cérebro externo</h3>
+    <p>O <code>.md</code> (Markdown) é o formato que a IA lê mais rápido e gasta menos token que <code>.txt</code> ou Excel. Ele vira o <strong>"cérebro" das suas conversas</strong>.</p>
+
+    <p><strong>O fluxo é simples:</strong></p>
+    <ol>
+      <li>Antes de fechar um chat importante: peça pra IA gerar um <code>.md</code> com o contexto</li>
+      <li>Salve numa pasta no seu PC (de preferência no disco <code>C:\</code>, primeiro nível — facilita a indexação)</li>
+      <li>No próximo chat: anexe o <code>.md</code> ou aponte a pasta — a IA "lembra" tudo</li>
+    </ol>
+
+    <h3>🛠️ Por que baixar o Antigravity + Claude Desktop</h3>
+    <p>Com os dois rodando local, a IA <strong>manipula sua pasta diretamente</strong>: cria, renomeia, deleta, lê arquivos. Demonstrei ao vivo criando uma pasta <code>BARBAREX</code>, renomeando pra <code>KICKMONSTRAO</code> e deletando — tudo via comando direto pro Claude.</p>
+
+    <div class="callout">
+      <div class="icon">🔄</div>
+      <div class="content">
+        <div class="title">Bônus: salvamento automático</div>
+        <p>Dá pra configurar a IA pra salvar o contexto importante <strong>sozinha</strong> ao final das sessões. Vira um diário do seu projeto.</p>
+      </div>
+    </div>
+
+    <h3>🔁 Contexto + Skill + Conector = automação completa</h3>
+    <p>Foi o que rolou na prática com a planilha de compras da Bárbara:</p>
+    <ul>
+      <li><strong>Contexto</strong> = o que precisa ser feito (relatório de 2 fornecedores, valores e quantidade, <strong>uma única aba</strong>)</li>
+      <li><strong>Skill</strong> = como executar a tarefa recorrente</li>
+      <li><strong>Conector (MCP Google Drive)</strong> = a ferramenta que lê os PDFs direto da pasta</li>
+    </ul>
+    <p>Resultado: IA leu as notas no Drive, identificou produtos e calculou totais — sem script, sem Python, sem robô.</p>
+
+    <h3>⚠️ Lição da prática de hoje</h3>
+    <p>A primeira tentativa virou uma planilha gigante com 8 abas porque <strong>faltou contexto + exemplo de saída</strong>. A correção foi simples:</p>
+    <blockquote>
+      "Não quero uma planilha cheia de abas. Quero <strong>um relatório simples, em uma única aba</strong>, com quantidade e valor dos fornecedores X e Y."
+    </blockquote>
+    <p>Moral: <strong>persona + objetivo + exemplo de saída</strong> continua sendo a regra de ouro (lembra da Dose #1?).</p>
+  </article>
+
+  <!-- ============ TASKS ============ -->
+  <section class="tasks">
+    <h2>📌 Tarefas abertas pra Dose #3</h2>
+    <ul>
+      <li><strong>Todos do grupo</strong> — trazer um <code>.md</code> com um problema/tarefa que tentaram fazer com IA e não rolou. Vamos debugar ao vivo.</li>
+      <li><strong>Todos do grupo</strong> — praticar o salvamento de contexto em <code>.md</code> ao longo da semana</li>
+      <li><strong>Quem ainda não baixou</strong> — Antigravity (<a href="https://antigravity.google" style="color: var(--blue);">antigravity.google</a>) + Claude Desktop (<a href="https://claude.ai/download" style="color: var(--blue);">claude.ai/download</a>)</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>💊 Pílula de IA · V4 Company</p>
+    <p>Treinamento interno · feito com <span class="heart">♥</span> · atualizado em 2026-05-14</p>
+  </footer>
+
+</div>
+</body>
+</html>
