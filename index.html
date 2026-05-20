@@ -208,6 +208,7 @@
     text-transform: uppercase;
   }
   .dose#dose-2 .dose-num { color: var(--blue); }
+  .dose#dose-4 .dose-num { color: var(--blue); }
   .dose-title {
     font-family: 'Fraunces', Georgia, serif;
     font-size: 2.1rem;
@@ -255,6 +256,7 @@
     box-shadow: var(--shadow);
   }
   .dose#dose-2 blockquote { border-left-color: var(--blue); }
+  .dose#dose-4 blockquote { border-left-color: var(--blue); }
   .dose blockquote strong { color: var(--ink); font-style: normal; }
 
   .dose code {
@@ -395,11 +397,19 @@
       <span class="status done">✅ Concluída</span>
     </a>
 
-    <div class="toc-card planned" style="cursor: default;">
+    <a href="#dose-3" class="toc-card">
       <div class="num">Dose #3</div>
-      <h3>Prática: debugar problemas reais</h3>
+      <h3>Quando a IA erra — olho na base de dados</h3>
+      <div class="date">2026-05-20</div>
+      <div class="desc">Alucinações, dados inventados e por que a base de dados é a fonte da verdade.</div>
+      <span class="status done">✅ Concluída</span>
+    </a>
+
+    <div class="toc-card blue planned" style="cursor: default;">
+      <div class="num">Dose #4</div>
+      <h3>IA conectada à base de dados</h3>
       <div class="date">a definir</div>
-      <div class="desc">Cada um traz um <code>.md</code> de tarefa que não rolou. Vamos arrumar ao vivo.</div>
+      <div class="desc">Conectar a IA direto no banco pra ela consultar ao invés de adivinhar.</div>
       <span class="status planned">📅 Planejada</span>
     </div>
   </section>
@@ -532,19 +542,93 @@ Empresa: Staage (1420) | Data: 03/05/2026</code></pre>
     <p>Moral: <strong>persona + objetivo + exemplo de saída</strong> continua sendo a regra de ouro (lembra da Dose #1?).</p>
   </article>
 
+  <!-- ============ DOSE 3 ============ -->
+  <article class="dose" id="dose-3">
+    <div class="dose-header">
+      <div class="dose-num">Dose #3</div>
+      <h2 class="dose-title">Quando a IA erra — por que a base de dados é a fonte da verdade</h2>
+      <div class="dose-meta">
+        <span>📅 20 de maio de 2026</span>
+        <span>✅ Concluída</span>
+      </div>
+    </div>
+
+    <p>A IA é poderosa, mas <strong>não é infalível</strong>. O problema não é quando ela erra feio — isso você pega na hora. O problema é quando ela erra <strong>com confiança</strong>, gerando algo plausível que parece certo.</p>
+
+    <h3>⚠️ Alucinação: o erro que parece verdade</h3>
+    <p>A IA gera texto <strong>estatisticamente provável</strong>, não necessariamente verdadeiro. Isso significa que ela pode inventar um fornecedor, um CNPJ, um valor — e apresentar com a mesma segurança de um dado real.</p>
+
+    <blockquote>
+      No financeiro, dado errado = dinheiro errado. Não dá pra confiar sem conferir.
+    </blockquote>
+
+    <h3>🧪 4 exemplos práticos de onde a IA escorrega</h3>
+
+    <h4>1. Fornecedor fantasma</h4>
+    <p>Você pede: <em>"lista os 10 maiores fornecedores da empresa no Q1"</em>. A IA não tem acesso à base → ela <strong>inventa nomes que parecem reais</strong>. "Distribuidora Nacional Ltda" soa legítimo, mas não existe no cadastro de Business Partners do SAP.</p>
+
+    <h4>2. NF com valor "arredondado"</h4>
+    <p>Você joga uma foto de NF e pede pra extrair os dados. A IA lê R$ 14.832,<strong>50</strong> mas o valor real é R$ 14.832,<strong>57</strong>. Diferença de centavos? No fechamento de 500 NFs, vira divergência no SPED.</p>
+
+    <h4>3. CNPJ com formato certo mas número errado</h4>
+    <p>A IA sabe que CNPJ tem 14 dígitos e formatação XX.XXX.XXX/XXXX-XX. Então ela gera um que <strong>parece</strong> válido — mas os dígitos verificadores não batem, e o SAP rejeita na hora de cadastrar o BP.</p>
+
+    <h4>4. Cálculo de imposto "criativo"</h4>
+    <p>Você pergunta: <em>"qual a alíquota de ISS pra esse serviço?"</em>. A IA responde 5% com toda confiança. Mas a alíquota do seu município é 2,5%. Ela pegou a <strong>alíquota máxima permitida</strong>, não a real.</p>
+
+    <h3>🔍 A regra de ouro: Base de Dados > Output da IA</h3>
+    <p>A IA é uma <strong>assistente de análise</strong>, não uma <strong>fonte de dados</strong>. A fonte é sempre:</p>
+    <ul>
+      <li>O <strong>SAP</strong> (cadastro de BPs, saldos, lançamentos)</li>
+      <li>O <strong>extrato bancário</strong> (conciliação real)</li>
+      <li>A <strong>NF original</strong> (XML, não foto)</li>
+      <li>O <strong>banco de dados</strong> (registros validados)</li>
+    </ul>
+
+    <div class="callout">
+      <div class="icon">✅</div>
+      <div class="content">
+        <div class="title">Fluxo correto</div>
+        <p>IA gera output → Você confere na base → Bateu? Usa. Não bateu? Corrige.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="icon">🚫</div>
+      <div class="content">
+        <div class="title">Fluxo perigoso</div>
+        <p>IA gera output → Você confia → Manda pro SAP → Erro no fechamento → Retrabalho.</p>
+      </div>
+    </div>
+
+    <h3>🛡️ 3 técnicas pra não cair em alucinação</h3>
+
+    <h4>1. Sempre dê a fonte</h4>
+    <p>Não pergunte "quais são meus fornecedores" — <strong>anexe a planilha</strong> ou <strong>conecte ao banco</strong>. IA com dados reais alucina muito menos que IA no vácuo.</p>
+
+    <h4>2. Peça pra IA citar de onde tirou</h4>
+    <p>Inclua no prompt: <em>"cite a linha exata do arquivo / registro de onde veio cada dado"</em>. Se ela não conseguir apontar a fonte, é sinal de que inventou.</p>
+
+    <h4>3. Teste com um dado que você já sabe a resposta</h4>
+    <p>Antes de confiar num resultado novo, jogue uma pergunta que você <strong>já sabe a resposta</strong>. Se a IA acertar, bom sinal. Se errar, o contexto tá fraco.</p>
+
+    <h3>🛠️ Debug ao vivo</h3>
+    <p><em>Nesta sessão, abrimos os <code>.md</code> que o grupo trouxe e debugamos prompts ao vivo — detalhes em breve.</em></p>
+  </article>
+
   <!-- ============ TASKS ============ -->
   <section class="tasks">
-    <h2>📌 Tarefas abertas pra Dose #3</h2>
+    <h2>📌 Tarefas abertas pra Dose #4</h2>
     <ul>
-      <li><strong>Todos do grupo</strong> — trazer um <code>.md</code> com um problema/tarefa que tentaram fazer com IA e não rolou. Vamos debugar ao vivo.</li>
-      <li><strong>Todos do grupo</strong> — praticar o salvamento de contexto em <code>.md</code> ao longo da semana</li>
-      <li><strong>Quem ainda não baixou</strong> — Antigravity (<a href="https://antigravity.google" style="color: var(--blue);">antigravity.google</a>) + Claude Desktop (<a href="https://claude.ai/download" style="color: var(--blue);">claude.ai/download</a>)</li>
+      <li><strong>Todos do grupo</strong> — testar a técnica do "dado conhecido": perguntar algo que você já sabe a resposta e ver se a IA acerta</li>
+      <li><strong>Todos do grupo</strong> — na próxima vez que usar IA no trabalho, conferir pelo menos 1 dado no SAP/banco antes de usar o output</li>
+      <li><strong>Todos do grupo</strong> — trazer um caso onde a IA errou (ou onde você quase usou um dado errado) — vamos montar um "mural de alucinações" da V4</li>
     </ul>
   </section>
 
   <footer>
     <p>💊 Pílula de IA · V4 Company</p>
-    <p>Treinamento interno · feito com <span class="heart">♥</span> · atualizado em 2026-05-14</p>
+    <p>Treinamento interno · feito com <span class="heart">♥</span> · atualizado em 2026-05-20</p>
   </footer>
 
 </div>
