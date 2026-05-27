@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Crxate Education">
+  <g transform="rotate(-35 40 40)">
+    <rect x="12" y="27" width="56" height="26" rx="13" fill="#050505"/>
+    <path d="M40 27H55C62.1797 27 68 32.8203 68 40C68 47.1797 62.1797 53 55 53H40V27Z" fill="#c58a12"/>
+    <path d="M40 30V50" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+  <circle cx="59" cy="20" r="3.5" fill="#c58a12"/>
+</svg>

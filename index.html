@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crxate Pílula — IA, automação e inteligência empresarial</title>
+<title>Crxate Education — IA, automação e inteligência empresarial</title>
 <link rel="icon" type="image/svg+xml" href="logo-crxate.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +52,17 @@
     margin-bottom: 48px;
     color: var(--ink);
   }
+  .product-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .education-mark {
+    width: 42px;
+    height: 42px;
+    display: block;
+  }
   .badge {
     display: inline-block;
     padding: 6px 10px;
@@ -63,7 +74,7 @@
     letter-spacing: 0;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 22px;
+    margin-bottom: 0;
   }
   h1 {
     font-family: 'Sora', -apple-system, system-ui, sans-serif;
@@ -396,9 +407,12 @@
 
   <header>
     <img src="logo-crxate.svg" alt="Crxate" class="brand-mark">
-    <span class="badge">Crxate Education · IA aplicada</span>
-    <h1>Pílula de <span class="accent-word">IA aplicada.</span></h1>
-    <p class="subtitle">Doses curtas sobre inteligência artificial, automação e operação empresarial.<br>Conhecimento prático para transformar processos em sistemas mais inteligentes.</p>
+    <div class="product-lockup">
+      <img src="education-mark.svg" alt="" class="education-mark" aria-hidden="true">
+      <span class="badge">Crxate Education · IA aplicada</span>
+    </div>
+    <h1>IA aplicada para <span class="accent-word">operar melhor.</span></h1>
+    <p class="subtitle">Aulas curtas sobre inteligência artificial, automação e operação empresarial.<br>Conhecimento prático para transformar processos em sistemas mais inteligentes.</p>
 
     <div class="principle">
       <div class="label">Princípio que guia tudo</div>
@@ -655,7 +669,7 @@ Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
 
   <footer>
     <img src="logo-crxate.svg" alt="Crxate" class="footer-logo">
-    <p>Pílula · Education</p>
+    <p>Education · IA aplicada</p>
     <p>IA aplicada, automação e inteligência empresarial · atualizado em 2026-05-27</p>
   </footer>
 
