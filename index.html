@@ -4,25 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crxate Pílula — IA, automação e inteligência empresarial</title>
+<link rel="icon" type="image/svg+xml" href="logo-crxate.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #07090d;
-    --paper-soft: rgba(255, 255, 255, 0.045);
-    --paper-line: rgba(255, 255, 255, 0.09);
-    --ink: rgba(255, 255, 255, 0.94);
-    --ink-soft: rgba(255, 255, 255, 0.64);
-    --accent: #16a34a;
-    --accent-soft: rgba(22, 163, 74, 0.18);
-    --blue: #38bdf8;
-    --blue-soft: rgba(56, 189, 248, 0.16);
-    --green: #4ade80;
-    --green-soft: rgba(74, 222, 128, 0.14);
-    --yellow: #f59e0b;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 14px 40px rgba(0, 0, 0, 0.22);
-    --shadow-lg: 0 18px 60px rgba(0, 0, 0, 0.34), 0 0 40px rgba(22, 163, 74, 0.08);
+    --paper: #ffffff;
+    --paper-soft: #f7f7f5;
+    --paper-line: #e5e5e0;
+    --ink: #050505;
+    --ink-soft: #6f737b;
+    --ink-faint: #a6abb3;
+    --accent: #c58a12;
+    --accent-soft: #fff4d8;
+    --blue: #2563eb;
+    --blue-soft: #eaf0ff;
+    --green: #167c3b;
+    --green-soft: #e7f6ed;
+    --yellow: #c58a12;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 28px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 18px 42px rgba(0, 0, 0, 0.08);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -30,62 +32,66 @@
     font-family: 'Sora', -apple-system, system-ui, sans-serif;
     background-color: var(--paper);
     background-image:
-      radial-gradient(circle at 20% 0%, rgba(22, 163, 74, 0.18) 0px, transparent 35%),
-      radial-gradient(circle at 80% 100%, rgba(245, 158, 11, 0.12) 0px, transparent 36%),
-      linear-gradient(135deg, #07090d 0%, #15171d 100%);
+      linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+    background-size: 56px 56px;
     background-attachment: fixed;
     color: var(--ink);
     line-height: 1.65;
     min-height: 100vh;
     font-size: 16px;
   }
-  .container { max-width: 880px; margin: 0 auto; padding: 80px 28px 60px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 72px 30px 60px; }
 
   /* ============ HEADER ============ */
-  header { text-align: center; margin-bottom: 56px; position: relative; }
+  header { margin-bottom: 64px; position: relative; }
+  .brand-mark {
+    width: 86px;
+    height: auto;
+    display: block;
+    margin-bottom: 48px;
+    color: var(--ink);
+  }
   .badge {
     display: inline-block;
-    padding: 6px 16px;
+    padding: 6px 10px;
     background: var(--accent-soft);
-    border: 1px solid rgba(22, 163, 74, 0.35);
-    border-radius: 999px;
-    font-size: 12px;
+    border: 1px solid #f0dfb2;
+    border-radius: 0;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
   h1 {
     font-family: 'Sora', -apple-system, system-ui, sans-serif;
-    font-size: 3.7rem;
-    font-weight: 800;
-    line-height: 1.05;
+    font-size: 4rem;
+    font-weight: 500;
+    line-height: 1.02;
     letter-spacing: 0;
-    margin-bottom: 16px;
+    margin-bottom: 22px;
     color: var(--ink);
+    max-width: 720px;
   }
-  h1 .pulse { color: var(--accent); display: inline-block; }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.1) rotate(-5deg); }
-  }
+  h1 .accent-word { color: var(--accent); display: inline-block; }
   .subtitle {
     font-family: 'Sora', -apple-system, system-ui, sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.08rem;
     color: var(--ink-soft);
-    max-width: 580px;
-    margin: 0 auto;
+    max-width: 640px;
+    margin: 0;
   }
   .principle {
-    margin: 44px auto 0;
-    padding: 22px 28px;
-    background: linear-gradient(135deg, rgba(22, 163, 74, 0.11) 0%, var(--paper-soft) 100%);
+    margin: 42px 0 0;
+    padding: 20px 0 0;
+    background: transparent;
     border: 1px solid var(--paper-line);
-    border-left: 4px solid var(--accent);
-    border-radius: 8px;
+    border-width: 1px 0 0;
+    border-radius: 0;
     max-width: 620px;
-    box-shadow: var(--shadow);
+    box-shadow: none;
   }
   .principle .label {
     font-size: 11px;
@@ -111,7 +117,7 @@
     letter-spacing: 0;
     color: var(--ink-soft);
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
   }
   .toc {
     display: grid;
@@ -120,9 +126,9 @@
     margin-bottom: 80px;
   }
   .toc-card {
-    background: rgba(255, 255, 255, 0.045);
+    background: #ffffff;
     border: 1px solid var(--paper-line);
-    border-radius: 14px;
+    border-radius: 0;
     padding: 24px;
     text-decoration: none;
     color: inherit;
@@ -145,7 +151,7 @@
   .toc-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--accent-soft);
+    border-color: #d4d4ce;
   }
   .toc-card .num {
     font-family: 'JetBrains Mono', monospace;
@@ -185,13 +191,13 @@
     font-weight: 600;
   }
   .status.done { background: var(--green-soft); color: var(--green); }
-  .status.planned { background: rgba(245, 158, 11, 0.16); color: #fbbf24; }
+  .status.planned { background: var(--accent-soft); color: var(--accent); }
 
   /* ============ DOSE ============ */
   .dose {
-    background: rgba(255, 255, 255, 0.052);
+    background: #ffffff;
     border: 1px solid var(--paper-line);
-    border-radius: 18px;
+    border-radius: 0;
     padding: 56px 56px 48px;
     margin-bottom: 32px;
     box-shadow: var(--shadow);
@@ -247,8 +253,8 @@
     border-left: 4px solid var(--accent);
     padding: 14px 22px;
     margin: 22px 0;
-    background: var(--paper-soft);
-    border-radius: 0 8px 8px 0;
+    background: #fafafa;
+    border-radius: 0;
     color: var(--ink);
     font-family: 'Sora', -apple-system, system-ui, sans-serif;
     font-style: italic;
@@ -262,42 +268,53 @@
   .dose code {
     background: var(--paper-soft);
     padding: 2px 7px;
-    border-radius: 4px;
+    border-radius: 0;
     font-family: 'JetBrains Mono', 'Consolas', monospace;
     font-size: 0.88em;
     color: var(--accent);
     border: 1px solid var(--paper-line);
   }
   .dose pre {
-    background: rgba(0, 0, 0, 0.22);
+    background: #111111;
     padding: 22px 26px;
-    border-radius: 10px;
+    border-radius: 0;
     overflow-x: auto;
     margin: 22px 0;
-    border: 1px solid var(--paper-line);
+    border: 1px solid #111111;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.18);
   }
   .dose pre code {
     background: none;
     padding: 0;
     border: none;
-    color: var(--ink);
+    color: #f6f6f3;
     font-size: 0.85rem;
     line-height: 1.7;
   }
 
   /* Highlight box dentro das doses */
   .callout {
-    background: linear-gradient(135deg, rgba(22, 163, 74, 0.10) 0%, var(--paper-soft) 100%);
+    background: #fafafa;
     border: 1px solid var(--paper-line);
-    border-radius: 12px;
+    border-radius: 0;
     padding: 22px 26px;
     margin: 24px 0;
     display: flex;
     gap: 16px;
     align-items: flex-start;
   }
-  .callout .icon { font-size: 1.6rem; flex-shrink: 0; }
+  .callout .icon {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    background: var(--ink);
+    color: #ffffff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
   .callout .content { flex: 1; }
   .callout .title {
     font-family: 'Sora', -apple-system, system-ui, sans-serif;
@@ -311,9 +328,9 @@
   .tasks {
     margin-top: 80px;
     padding: 44px 48px;
-    background: linear-gradient(135deg, rgba(22, 163, 74, 0.10) 0%, rgba(245, 158, 11, 0.08) 100%);
+    background: #fffaf0;
     border: 1px solid var(--accent-soft);
-    border-radius: 18px;
+    border-radius: 0;
     box-shadow: var(--shadow-lg);
   }
   .tasks h2 {
@@ -351,11 +368,19 @@
     font-size: 0.88rem;
     font-family: 'JetBrains Mono', monospace;
   }
+  .footer-logo {
+    width: 74px;
+    height: auto;
+    display: block;
+    margin: 0 auto 18px;
+    color: var(--ink);
+  }
   footer .heart { color: var(--accent); }
 
   @media (max-width: 720px) {
     .container { padding: 48px 18px 40px; }
-    h1 { font-size: 2.45rem; }
+    .brand-mark { width: 78px; margin-bottom: 38px; }
+    h1 { font-size: 2.55rem; }
     .dose { padding: 32px 24px 28px; }
     .dose-title { font-size: 1.6rem; }
     .tasks { padding: 32px 24px; }
@@ -370,8 +395,9 @@
 <div class="container">
 
   <header>
+    <img src="logo-crxate.svg" alt="Crxate" class="brand-mark">
     <span class="badge">Crxate Education · IA aplicada</span>
-    <h1><span class="pulse">Crxate</span> Pílula</h1>
+    <h1>Pílula de <span class="accent-word">IA aplicada.</span></h1>
     <p class="subtitle">Doses curtas sobre inteligência artificial, automação e operação empresarial.<br>Conhecimento prático para transformar processos em sistemas mais inteligentes.</p>
 
     <div class="principle">
@@ -387,7 +413,7 @@
       <h3>Skills, MCPs, APIs, Agentes & Prompts</h3>
       <div class="date">2026-05-05</div>
       <div class="desc">Os 5 pilares que sustentam qualquer automação inteligente dentro de uma operação real.</div>
-      <span class="status done">✅ Concluída</span>
+      <span class="status done">Concluída</span>
     </a>
 
     <a href="#dose-2" class="toc-card blue">
@@ -395,7 +421,7 @@
       <h3>Contexto — a memória viva da IA</h3>
       <div class="date">2026-05-13</div>
       <div class="desc">Janela de 1M tokens, arquivos <code>.md</code> como cérebro externo.</div>
-      <span class="status done">✅ Concluída</span>
+      <span class="status done">Concluída</span>
     </a>
 
     <a href="#dose-3" class="toc-card">
@@ -403,7 +429,7 @@
       <h3>Quando a IA erra — olho na base de dados</h3>
       <div class="date">2026-05-20</div>
       <div class="desc">Alucinações, dados inventados e por que a base de dados é a fonte da verdade.</div>
-      <span class="status done">✅ Concluída</span>
+      <span class="status done">Concluída</span>
     </a>
 
     <div class="toc-card blue planned" style="cursor: default;">
@@ -411,7 +437,7 @@
       <h3>IA conectada à base de dados</h3>
       <div class="date">a definir</div>
       <div class="desc">Conectar a IA à fonte da verdade para consultar, analisar e apoiar decisões sem adivinhar.</div>
-      <span class="status planned">📅 Planejada</span>
+      <span class="status planned">Planejada</span>
     </div>
   </section>
 
@@ -421,29 +447,29 @@
       <div class="dose-num">Dose #1</div>
       <h2 class="dose-title">Skills, MCPs, APIs, Agentes & Engenharia de Prompt</h2>
       <div class="dose-meta">
-        <span>📅 05 de maio de 2026</span>
-        <span>✅ Concluída</span>
+        <span>05 de maio de 2026</span>
+        <span>Concluída</span>
       </div>
     </div>
 
     <p>Tema de estreia: os <strong>5 pilares</strong> que sustentam qualquer automação inteligente de verdade. Essa é a base da Crxate Education: traduzir tecnologia em método de operação.</p>
 
-    <h3>🧩 Skills</h3>
+    <h3>Skills</h3>
     <p>Pacotes de conhecimento especializado que a IA carrega sob demanda (ex.: <code>conciliacao-bancaria</code>, <code>integracao-erp</code>, <code>automacao-n8n</code>). Cada skill é uma "expertise" plugável: quando o contexto pede, ela entra em cena.</p>
 
-    <h3>🔌 MCPs <em>(Model Context Protocol)</em></h3>
+    <h3>MCPs <em>(Model Context Protocol)</em></h3>
     <p>A "tomada universal" que conecta a IA direto às ferramentas (Supabase, n8n, Gmail, Drive). Em vez de copiar/colar dados, o modelo lê e age na fonte.</p>
 
-    <h3>🌐 APIs</h3>
+    <h3>APIs</h3>
     <p>A camada que permite a IA conversar com sistemas externos (ERP, gateways, bancos de dados, plataformas de venda). É o "braço executor" que tira a IA do chat e leva pra dentro do processo.</p>
 
-    <h3>🤖 Agentes</h3>
+    <h3>Agentes</h3>
     <p>A junção de tudo: skills + MCPs + APIs orquestrados pra executar tarefas de ponta a ponta com autonomia (ex.: ler e-mail → extrair NF → conciliar com contas a pagar → registrar no ERP).</p>
 
-    <h3>✍️ Engenharia de Prompt</h3>
+    <h3>Engenharia de Prompt</h3>
     <p>A habilidade de <em>falar com a IA do jeito certo</em>. Não é mágica, é método: persona, objetivo, regras, exemplos e formato de saída. Um bom prompt é a diferença entre uma resposta genérica e um resultado pronto pra produção.</p>
 
-    <h4>🎯 Anatomia de um bom prompt</h4>
+    <h4>Anatomia de um bom prompt</h4>
     <pre><code>[PERSONA]
 Você é um analista financeiro sênior,
 especialista em conciliação entre gateway, banco de dados e ERP.
@@ -467,14 +493,14 @@ transações que não bateram com o extrato bancário do dia.
 Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
 
     <div class="callout">
-      <div class="icon">💡</div>
+      <div class="icon">01</div>
       <div class="content">
         <div class="title">Por que funciona</div>
         <p>A IA sabe <em>quem ela é</em>, <em>o que entregar</em>, <em>o que não pode fazer</em> e <em>como formatar</em> — eliminando 90% das idas e voltas.</p>
       </div>
     </div>
 
-    <h3>🎁 Bônus ao vivo: Skill <code>/ideia</code></h3>
+    <h3>Bônus ao vivo: Skill <code>/ideia</code></h3>
     <p>Uma skill que combina <strong>ideação socrática</strong> (expandir a ideia) + <strong>sabatina implacável</strong> (estressar antes de executar). Use quando bater aquele "tenho uma ideia, mas será que faz sentido?" — ela ajuda a validar antes de gastar energia construindo.</p>
   </article>
 
@@ -484,28 +510,28 @@ Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
       <div class="dose-num">Dose #2</div>
       <h2 class="dose-title">Contexto — a memória viva da IA</h2>
       <div class="dose-meta">
-        <span>📅 13 de maio de 2026</span>
-        <span>✅ Concluída</span>
+        <span>13 de maio de 2026</span>
+        <span>Concluída</span>
       </div>
     </div>
 
     <p>Tema de hoje: <strong>Contexto</strong>. Aquilo que separa uma IA que "esqueceu tudo" de uma IA que continua de onde parou.</p>
 
-    <h3>🧠 O que é contexto, afinal?</h3>
+    <h3>O que é contexto, afinal?</h3>
     <p>É o conjunto de informações que a IA carrega na cabeça durante uma conversa. Quanto mais contexto certo, melhor a entrega. Em qualquer operação, quem entende a base executa mais rápido — com IA é a mesma coisa.</p>
 
-    <h3>📏 A janela de 1 milhão de tokens</h3>
+    <h3>A janela de 1 milhão de tokens</h3>
     <p>Cada chat tem um limite: <strong>1 milhão de tokens</strong> (~200 mil caracteres no Claude). Quando estoura, o chat trava e você precisa abrir outro. Aí mora o problema: <strong>se você não salvou o contexto, perdeu tudo.</strong></p>
 
     <div class="callout">
-      <div class="icon">📊</div>
+      <div class="icon">02</div>
       <div class="content">
         <div class="title">Exemplo real</div>
         <p>Um projeto real consumiu 877 mil tokens só na <strong>fase 1</strong> de 5. Sem estratégia de contexto, seria preciso explicar tudo de novo na fase 2.</p>
       </div>
     </div>
 
-    <h3>📄 A solução: arquivos <code>.md</code> como cérebro externo</h3>
+    <h3>A solução: arquivos <code>.md</code> como cérebro externo</h3>
     <p>O <code>.md</code> (Markdown) é o formato que a IA lê mais rápido e gasta menos token que <code>.txt</code> ou Excel. Ele vira o <strong>"cérebro" das suas conversas</strong>.</p>
 
     <p><strong>O fluxo é simples:</strong></p>
@@ -515,18 +541,18 @@ Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
       <li>No próximo chat: anexe o <code>.md</code> ou aponte a pasta — a IA "lembra" tudo</li>
     </ol>
 
-    <h3>🛠️ Por que baixar o Antigravity + Claude Desktop</h3>
+    <h3>Por que baixar o Antigravity + Claude Desktop</h3>
     <p>Com os dois rodando local, a IA <strong>manipula sua pasta diretamente</strong>: cria, renomeia, deleta, lê arquivos. Demonstrei ao vivo criando uma pasta <code>BARBAREX</code>, renomeando pra <code>KICKMONSTRAO</code> e deletando — tudo via comando direto pro Claude.</p>
 
     <div class="callout">
-      <div class="icon">🔄</div>
+      <div class="icon">03</div>
       <div class="content">
         <div class="title">Bônus: salvamento automático</div>
         <p>Dá pra configurar a IA pra salvar o contexto importante <strong>sozinha</strong> ao final das sessões. Vira um diário do seu projeto.</p>
       </div>
     </div>
 
-    <h3>🔁 Contexto + Skill + Conector = automação completa</h3>
+    <h3>Contexto + Skill + Conector = automação completa</h3>
     <p>Foi o que rolou na prática com uma planilha de compras:</p>
     <ul>
       <li><strong>Contexto</strong> = o que precisa ser feito (relatório de 2 fornecedores, valores e quantidade, <strong>uma única aba</strong>)</li>
@@ -535,7 +561,7 @@ Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
     </ul>
     <p>Resultado: IA leu as notas no Drive, identificou produtos e calculou totais — sem script, sem Python, sem robô.</p>
 
-    <h3>⚠️ Lição da prática de hoje</h3>
+    <h3>Lição da prática de hoje</h3>
     <p>A primeira tentativa virou uma planilha gigante com 8 abas porque <strong>faltou contexto + exemplo de saída</strong>. A correção foi simples:</p>
     <blockquote>
       "Não quero uma planilha cheia de abas. Quero <strong>um relatório simples, em uma única aba</strong>, com quantidade e valor dos fornecedores X e Y."
@@ -549,21 +575,21 @@ Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
       <div class="dose-num">Dose #3</div>
       <h2 class="dose-title">Quando a IA erra — por que a base de dados é a fonte da verdade</h2>
       <div class="dose-meta">
-        <span>📅 20 de maio de 2026</span>
-        <span>✅ Concluída</span>
+        <span>20 de maio de 2026</span>
+        <span>Concluída</span>
       </div>
     </div>
 
     <p>A IA é poderosa, mas <strong>não é infalível</strong>. O problema não é quando ela erra feio — isso você pega na hora. O problema é quando ela erra <strong>com confiança</strong>, gerando algo plausível que parece certo.</p>
 
-    <h3>⚠️ Alucinação: o erro que parece verdade</h3>
+    <h3>Alucinação: o erro que parece verdade</h3>
     <p>A IA gera texto <strong>estatisticamente provável</strong>, não necessariamente verdadeiro. Isso significa que ela pode inventar um fornecedor, um CNPJ, um valor — e apresentar com a mesma segurança de um dado real.</p>
 
     <blockquote>
       No financeiro, dado errado = dinheiro errado. Não dá pra confiar sem conferir.
     </blockquote>
 
-    <h3>🧪 4 exemplos práticos de onde a IA escorrega</h3>
+    <h3>4 exemplos práticos de onde a IA escorrega</h3>
 
     <h4>1. Fornecedor fantasma</h4>
     <p>Você pede: <em>"lista os 10 maiores fornecedores da empresa no Q1"</em>. A IA não tem acesso à base → ela <strong>inventa nomes que parecem reais</strong>. "Distribuidora Nacional Ltda" soa legítimo, mas não existe no cadastro oficial de fornecedores.</p>
@@ -577,7 +603,7 @@ Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
     <h4>4. Cálculo de imposto "criativo"</h4>
     <p>Você pergunta: <em>"qual a alíquota de ISS pra esse serviço?"</em>. A IA responde 5% com toda confiança. Mas a alíquota do seu município é 2,5%. Ela pegou a <strong>alíquota máxima permitida</strong>, não a real.</p>
 
-    <h3>🔍 A regra de ouro: Base de Dados > Output da IA</h3>
+    <h3>A regra de ouro: Base de Dados > Output da IA</h3>
     <p>A IA é uma <strong>assistente de análise</strong>, não uma <strong>fonte de dados</strong>. A fonte é sempre o sistema que registra a realidade:</p>
     <ul>
       <li>O <strong>ERP</strong> (cadastros, saldos, lançamentos)</li>
@@ -587,7 +613,7 @@ Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
     </ul>
 
     <div class="callout">
-      <div class="icon">✅</div>
+      <div class="icon">A</div>
       <div class="content">
         <div class="title">Fluxo correto</div>
         <p>IA gera output → Você confere na base → Bateu? Usa. Não bateu? Corrige.</p>
@@ -595,14 +621,14 @@ Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
     </div>
 
     <div class="callout">
-      <div class="icon">🚫</div>
+      <div class="icon">B</div>
       <div class="content">
         <div class="title">Fluxo perigoso</div>
         <p>IA gera output → Você confia → Manda para o sistema → Erro no fechamento → Retrabalho.</p>
       </div>
     </div>
 
-    <h3>🛡️ 3 técnicas pra não cair em alucinação</h3>
+    <h3>3 técnicas pra não cair em alucinação</h3>
 
     <h4>1. Sempre dê a fonte</h4>
     <p>Não pergunte "quais são meus fornecedores" — <strong>anexe a planilha</strong> ou <strong>conecte ao banco</strong>. IA com dados reais alucina muito menos que IA no vácuo.</p>
@@ -613,13 +639,13 @@ Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
     <h4>3. Teste com um dado que você já sabe a resposta</h4>
     <p>Antes de confiar num resultado novo, jogue uma pergunta que você <strong>já sabe a resposta</strong>. Se a IA acertar, bom sinal. Se errar, o contexto tá fraco.</p>
 
-    <h3>🛠️ Debug ao vivo</h3>
+    <h3>Debug ao vivo</h3>
     <p><em>Nesta sessão, abrimos os <code>.md</code> que o grupo trouxe e debugamos prompts ao vivo — detalhes em breve.</em></p>
   </article>
 
   <!-- ============ TASKS ============ -->
   <section class="tasks">
-    <h2>📌 Próximos exercícios</h2>
+    <h2>Próximos exercícios</h2>
     <ul>
       <li><strong>Exercício 1</strong> — testar a técnica do "dado conhecido": perguntar algo que você já sabe a resposta e ver se a IA acerta</li>
       <li><strong>Exercício 2</strong> — na próxima vez que usar IA no trabalho, conferir pelo menos 1 dado no ERP, banco ou planilha-fonte antes de usar o output</li>
@@ -628,7 +654,8 @@ Empresa: cliente-exemplo | Data: 03/05/2026</code></pre>
   </section>
 
   <footer>
-    <p>Crxate Pílula · Education</p>
+    <img src="logo-crxate.svg" alt="Crxate" class="footer-logo">
+    <p>Pílula · Education</p>
     <p>IA aplicada, automação e inteligência empresarial · atualizado em 2026-05-27</p>
   </footer>
 
