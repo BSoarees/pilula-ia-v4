@@ -130,6 +130,71 @@
     margin-bottom: 20px;
     text-align: left;
   }
+  .product-section {
+    margin-bottom: 78px;
+  }
+  .section-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    max-width: 720px;
+    margin-bottom: 18px;
+    color: var(--ink);
+    font-size: 2.15rem;
+    font-weight: 600;
+    line-height: 1.12;
+  }
+  .section-copy {
+    max-width: 690px;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .library-card {
+    background: #ffffff;
+    border: 1px solid var(--paper-line);
+    box-shadow: var(--shadow);
+    padding: 22px;
+  }
+  .library-card .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .library-card h3 {
+    color: var(--ink);
+    font-size: 1.05rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .library-card p {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .pricing-note {
+    margin-top: 28px;
+    padding: 18px 22px;
+    border: 1px solid var(--paper-line);
+    background: #fafafa;
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
   .toc {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -394,6 +459,7 @@
     h1 { font-size: 2.55rem; }
     .dose { padding: 32px 24px 28px; }
     .dose-title { font-size: 1.6rem; }
+    .section-title { font-size: 1.65rem; }
     .tasks { padding: 32px 24px; }
   }
   @media print {
@@ -411,14 +477,53 @@
       <img src="education-mark.svg" alt="" class="education-mark" aria-hidden="true">
       <span class="badge">Crxate Education · IA aplicada</span>
     </div>
-    <h1>IA aplicada para <span class="accent-word">operar melhor.</span></h1>
-    <p class="subtitle">Aulas curtas sobre inteligência artificial, automação e operação empresarial.<br>Conhecimento prático para transformar processos em sistemas mais inteligentes.</p>
+    <h1>Pensar melhor com <span class="accent-word">IA aplicada.</span></h1>
+    <p class="subtitle">Uma biblioteca viva de métodos, skills e aulas para profissionais que querem decidir melhor, operar melhor e aumentar a qualidade do próprio trabalho.</p>
 
     <div class="principle">
       <div class="label">Princípio que guia tudo</div>
       <div class="text">Pessoas decidem · Máquinas executam · IA analisa.</div>
     </div>
   </header>
+
+  <section class="product-section">
+    <div class="section-kicker">Biblioteca viva</div>
+    <h2 class="section-title">Menos curso genérico. Mais sistema de pensamento profissional.</h2>
+    <p class="section-copy">
+      O Education organiza o conhecimento da Crxate em uma biblioteca recorrente:
+      aulas rápidas em vídeo, textos de apoio, referências, skills baixáveis e
+      métodos para usar IA como parceira de raciocínio, decisão e execução.
+    </p>
+
+    <div class="library-grid">
+      <div class="library-card">
+        <div class="eyebrow">01 · métodos</div>
+        <h3>Frameworks para pensar melhor</h3>
+        <p>/ideia, decisão, diagnóstico, prioridade, reunião e outros modos de raciocínio profissional com IA.</p>
+      </div>
+      <div class="library-card">
+        <div class="eyebrow">02 · aulas</div>
+        <h3>Vídeos curtos em Remotion</h3>
+        <p>Aulas rápidas, visuais e recorrentes, gravadas sobre slides vivos para explicar uma tese por vez.</p>
+      </div>
+      <div class="library-card">
+        <div class="eyebrow">03 · assets</div>
+        <h3>Skills e materiais baixáveis</h3>
+        <p>Prompts, skills, templates, checklists e playbooks para aplicar direto no trabalho.</p>
+      </div>
+      <div class="library-card">
+        <div class="eyebrow">04 · planos</div>
+        <h3>Individual Premium e Enterprise</h3>
+        <p>Acesso individual para profissionais e trilhas fechadas para empresas treinarem times inteiros.</p>
+      </div>
+    </div>
+
+    <div class="pricing-note">
+      Modelo previsto: assinatura mensal para acesso à biblioteca viva, com trilhas
+      premium para indivíduos e uma frente Enterprise para clientes que quiserem
+      levar a metodologia Crxate para seus times.
+    </div>
+  </section>
 
   <div class="toc-title">— Trilha inicial —</div>
   <section class="toc">
